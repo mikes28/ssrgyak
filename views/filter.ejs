@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles
-    </title>
+    <title>Filter</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+     <form method="get" action="/filter">
+        <label for="minViews">Minimum látogatottság:</label>
+        <input
+            type="number"
+            id="minViews"
+            name="minViews"
+            min="0"
+            value="<%= minViews %>"
+            placeholder="pl. 1000"
+        >
+        <button type="submit">Szűrés</button>
 <table>
     <thead>
         <tr>
@@ -16,18 +26,15 @@
             <th>Latogatasok</th>
         </tr>
     </thead>
-
     <tbody>
-
        <% articles.forEach(element => { %>
         <tr>
             <td><%= element.title %></td>
             <td><%= element.url %></td>
             <td><%= element.views %></td>
         </tr>
-       <% }) %> 
+       <% }) %>
     </tbody>
-
 </table>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Új cikk</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<% if (success) { %>
+    <p style="color: green; font-weight: bold;">Sikeres adatfelvétel</p>
+    <a href="/">Vissza a főoldalra</a>
+<% } else { %>
+
+    <form method="post" action="/new">
+        <div>
+            <label for="title">Cím:</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value="<%= article.title %>"
+            >
+        </div>
+        <div>
+            <label for="url">URL:</label>
+            <input
+                type="text"
+                id="url"
+                name="url"
+                value="<%= article.url %>"
+            >
+        </div>
+        <div>
+            <label for="views">Megtekintések:</label>
+            <input
+                type="text"
+                id="views"
+                name="views"
+                value="<%= article.views %>"
+            >
+        </div>
+        <button type="submit">Felvétel</button>
+    </form>
+
+    <% if (error) { %>
+        <p style="color: red; font-weight: bold;"><%= error %></p>
+    <% } %>
+
+<% } %>
+
+</body>
+</html>
